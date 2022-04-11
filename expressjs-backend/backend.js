@@ -106,9 +106,10 @@ function findUserById(id) {
 }
 
 app.post("/users", (req, res) => {
-    console.log(req.body)
+  console.log(req.body)
   const userToAdd = req.body;
   console.log("app.post" + userToAdd);
+  /* prompt 2*/
   new_user = {
     id: uuidv4().slice(0, 8),
     name: userToAdd.name,
@@ -118,7 +119,7 @@ app.post("/users", (req, res) => {
   addUser(new_user);
   //res.status(200).end();
   //res.status(201).end();
-  res.status(201).send(new_user);
+  res.status(201).send(new_user); //prompt 1 + 3
 });
 
 function addUser(user) {
@@ -128,11 +129,14 @@ function addUser(user) {
 
 
 app.delete("/users/:id", (req, res) => {
+    //const result = removeUser(req.body.id)
     const result = removeUser(req.params.id);
     console.log(users);
     if (result == 0) {
+        //prompt 4: successful delete 
         res.status(204).send();
     } else {
+        //resource not found
         res.status(404).send();
     }
 });

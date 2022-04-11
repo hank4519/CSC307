@@ -30,6 +30,7 @@ function MyApp() {
   async function fetchAll() {
     try {
       const response = await axios.get("http://localhost:5001/users");
+      //prompt 3
       return response.data.users_list;
     } catch (error) {
       //We're not handling errors. Just logging into the console.
@@ -64,10 +65,10 @@ function MyApp() {
   }
 
   async function makeDeleteCall(user_id){ 
-    //const he = 'he'
     try{
       console.log(user_id) 
       //const response = await axios.delete("http://localhost:5001/users", user_id);
+      //prompt 4 
       const response = await axios.delete(`http://localhost:5001/users/${user_id}`);
       return response; 
     }catch (error){
