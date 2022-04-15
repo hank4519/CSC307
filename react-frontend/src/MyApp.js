@@ -67,7 +67,7 @@ function MyApp() {
   async function makeDeleteCall(user_id){ 
     try{
       console.log(user_id) 
-      //const response = await axios.delete("http://localhost:5001/users", user_id);
+      //const response = await axios.delete("http://localhost:5001/users", {id: user_id});
       //prompt 4 
       const response = await axios.delete(`http://localhost:5001/users/${user_id}`);
       return response; 

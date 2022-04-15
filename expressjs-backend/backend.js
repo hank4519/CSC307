@@ -127,17 +127,17 @@ function addUser(user) {
   users["users_list"].push(new_user);
 }
 
-
+//app.delete("/users/", (req, res) => {
 app.delete("/users/:id", (req, res) => {
     //const result = removeUser(req.body.id)
     const result = removeUser(req.params.id);
     console.log(users);
     if (result == 0) {
         //prompt 4: successful delete 
-        res.status(204).send();
+        res.status(204).end();
     } else {
         //resource not found
-        res.status(404).send();
+        res.status(404).end();
     }
 });
 
